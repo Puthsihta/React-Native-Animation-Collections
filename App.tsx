@@ -1,118 +1,110 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import ValuePickersScreen from 'screens/ValuePickersScreen';
+import Carousel3DScreen from 'screens/Carousel3DScreen';
+import CircularAnimatedTextScreen from 'screens/CircularAnimatedTextScreen';
+import CircularProgressScreen from 'screens/CircularProgressBarScreen';
+import CustomDrawerScreen from 'screens/CustomDrawerScreen';
+import DotLoaderScreen from 'screens/DotLoaderScreen';
+import DoubleListScreen from 'screens/DoubleListScreen';
+import DrawerInterpolateScreen from 'screens/DrawerInterpolateScreen';
+import FloatingButton from 'screens/FloatingButtonScreen';
+import LikeInteractionScreen from 'screens/LikeInteractionScreen';
+import ListWithTabScreen from 'screens/ListWithIndicator';
+import NFCReaderScreen from 'screens/NFCReaderScreen';
+import ParallaxScreen from 'screens/ParallaxScreen';
+import PinCodeScreen from 'screens/PinCodeScreen';
+import ProductListScreen from 'screens/ProuctListScreen';
+import ProgressLoaderScreen from 'screens/ProgressLoaderScreen';
+import ScrollItemListScreen from 'screens/ScrollItemListScreen';
+import ShutdownIOSScreen from 'screens/ShutdownIOSScreen';
+import TicketScreen from 'screens/TicketScreen';
+import TogglersScreen from 'screens/TogglerIOSScreen';
+import TranslateSearchIOSScreen from 'screens/TranslateSearchIOSScreen';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+type TStackList = {
+  ValuePickers: undefined;
+  Carousel3D: undefined;
+  CircularAnimationText: undefined;
+  CircularProgress: undefined;
+  CustomDrawer: undefined;
+  DotLoader: undefined;
+  DoubleList: undefined;
+  DrawerInterpolate: undefined;
+  FloatingButton: undefined;
+  LikeInteraction: undefined;
+  ListWithIndicator: undefined;
+  NFCReader: undefined;
+  Parallax: undefined;
+  PinCode: undefined;
+  ProductList: undefined;
+  ProgressLoader: undefined;
+  ScrollItemList: undefined;
+  ShutdownIOS: undefined;
+  Ticket: undefined;
+  Togglers: undefined;
+  TranslateSearchIOS: undefined;
+};
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const Stack = createNativeStackNavigator<TStackList>();
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
+          <Stack.Screen
+            name="TranslateSearchIOS"
+            component={TranslateSearchIOSScreen}
+          />
+          <Stack.Screen name="Togglers" component={TogglersScreen} />
+          <Stack.Screen name="Ticket" component={TicketScreen} />
+          <Stack.Screen name="ShutdownIOS" component={ShutdownIOSScreen} />
+          <Stack.Screen
+            name="ScrollItemList"
+            component={ScrollItemListScreen}
+          />
+          <Stack.Screen
+            name="ProgressLoader"
+            component={ProgressLoaderScreen}
+          />
+          <Stack.Screen name="ProductList" component={ProductListScreen} />
+          <Stack.Screen name="PinCode" component={PinCodeScreen} />
+          <Stack.Screen name="Parallax" component={ParallaxScreen} />
+          <Stack.Screen name="NFCReader" component={NFCReaderScreen} />
+          <Stack.Screen
+            name="ListWithIndicator"
+            component={ListWithTabScreen}
+          />
+          <Stack.Screen
+            name="LikeInteraction"
+            component={LikeInteractionScreen}
+          />
+          <Stack.Screen name="FloatingButton" component={FloatingButton} />
+          <Stack.Screen
+            name="DrawerInterpolate"
+            component={DrawerInterpolateScreen}
+          />
+          <Stack.Screen name="DoubleList" component={DoubleListScreen} />
+          <Stack.Screen name="DotLoader" component={DotLoaderScreen} />
+          <Stack.Screen name="CustomDrawer" component={CustomDrawerScreen} />
+          <Stack.Screen
+            name="CircularProgress"
+            component={CircularProgressScreen}
+          />
+          <Stack.Screen name="ValuePickers" component={ValuePickersScreen} />
+          <Stack.Screen name="Carousel3D" component={Carousel3DScreen} />
+          <Stack.Screen
+            name="CircularAnimationText"
+            component={CircularAnimatedTextScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
