@@ -23,6 +23,11 @@ import ShutdownIOSScreen from 'screens/ShutdownIOSScreen';
 import TicketScreen from 'screens/TicketScreen';
 import TogglersScreen from 'screens/TogglerIOSScreen';
 import TranslateSearchIOSScreen from 'screens/TranslateSearchIOSScreen';
+import {ColorPixelatedScreen} from 'screens/ColorPixelatedScreen';
+import {TypographyMetaballScreen} from 'screens/TypographyMetaBallScreen';
+import {PixelatedImageScreen} from 'screens/PixelatedImageScreen';
+import RippleImageScreen from 'screens/RippleImageScreen';
+import DragDropMusciScreen from 'screens/DragDropMusciScreen';
 
 type TStackList = {
   ValuePickers: undefined;
@@ -46,6 +51,11 @@ type TStackList = {
   Ticket: undefined;
   Togglers: undefined;
   TranslateSearchIOS: undefined;
+  ColorPixelated: undefined;
+  TypographyMetaball: undefined;
+  PixelatedImageS: undefined;
+  RippleImage: undefined;
+  DragDropMusci: undefined;
 };
 
 const Stack = createNativeStackNavigator<TStackList>();
@@ -56,6 +66,20 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
+          <Stack.Screen name="DragDropMusci" component={DragDropMusciScreen} />
+          <Stack.Screen name="RippleImage" component={RippleImageScreen} />
+          <Stack.Screen
+            name="PixelatedImageS"
+            component={PixelatedImageScreen}
+          />
+          <Stack.Screen
+            name="TypographyMetaball"
+            component={TypographyMetaballScreen}
+          />
+          <Stack.Screen
+            name="ColorPixelated"
+            component={ColorPixelatedScreen}
+          />
           <Stack.Screen
             name="TranslateSearchIOS"
             component={TranslateSearchIOSScreen}
