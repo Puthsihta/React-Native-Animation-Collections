@@ -28,6 +28,18 @@ import {TypographyMetaballScreen} from 'screens/TypographyMetaBallScreen';
 import {PixelatedImageScreen} from 'screens/PixelatedImageScreen';
 import RippleImageScreen from 'screens/RippleImageScreen';
 import DragDropMusciScreen from 'screens/DragDropMusciScreen';
+import LoadingScreen from 'screens/50_Days_Challenging/AnimationLoaderScreen';
+import AnimatedShapeScreen from 'screens/50_Days_Challenging/AnimationLoaderShap';
+import RunnyBorderScreen from 'screens/50_Days_Challenging/RunnyBorderScreen';
+import RatingWaveScreen from 'screens/50_Days_Challenging/RatingWaveScreen';
+import DynamicAccordionScreen from 'screens/50_Days_Challenging/DynamicAccordionScreen';
+import WigglingCardScreen from 'screens/50_Days_Challenging/WigglingCardScreen';
+import RadialFabScreen from 'screens/50_Days_Challenging/RadialFabScreen';
+import AnimationCircularProgressBarScreen from 'screens/50_Days_Challenging/CircularProgressBarScreen';
+import BarChartScreen from 'screens/50_Days_Challenging/BarChartScreen';
+import {RunnyCircleScreen} from 'screens/50_Days_Challenging/AnimationSpinningCircle';
+import {SplitButtonScreen} from 'screens/50_Days_Challenging/SplitButtonScreen';
+import HeartProgressCircleScreen from 'screens/50_Days_Challenging/HeartProgressCircleScreen';
 
 type TStackList = {
   ValuePickers: undefined;
@@ -56,6 +68,18 @@ type TStackList = {
   PixelatedImageS: undefined;
   RippleImage: undefined;
   DragDropMusci: undefined;
+  Loading: undefined;
+  AnimatedShape: undefined;
+  RunnyBorder: undefined;
+  RatingWave: undefined;
+  DynamicAccordion: undefined;
+  WigglingCard: undefined;
+  RadialFab: undefined;
+  AnimationCircularProgressBar: undefined;
+  BarChart: undefined;
+  RunnyCircle: undefined;
+  SplitButton: undefined;
+  HeartProgressCircle: undefined;
 };
 
 const Stack = createNativeStackNavigator<TStackList>();
@@ -66,6 +90,27 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
+          <Stack.Screen
+            name="HeartProgressCircle"
+            component={HeartProgressCircleScreen}
+          />
+          <Stack.Screen name="SplitButton" component={SplitButtonScreen} />
+          <Stack.Screen name="RunnyCircle" component={RunnyCircleScreen} />
+          <Stack.Screen name="BarChart" component={BarChartScreen} />
+          <Stack.Screen
+            name="AnimationCircularProgressBar"
+            component={AnimationCircularProgressBarScreen}
+          />
+          <Stack.Screen name="RadialFab" component={RadialFabScreen} />
+          <Stack.Screen name="WigglingCard" component={WigglingCardScreen} />
+          <Stack.Screen
+            name="DynamicAccordion"
+            component={DynamicAccordionScreen}
+          />
+          <Stack.Screen name="RatingWave" component={RatingWaveScreen} />
+          <Stack.Screen name="RunnyBorder" component={RunnyBorderScreen} />
+          <Stack.Screen name="AnimatedShape" component={AnimatedShapeScreen} />
+          <Stack.Screen name="Loading" component={LoadingScreen} />
           <Stack.Screen name="DragDropMusci" component={DragDropMusciScreen} />
           <Stack.Screen name="RippleImage" component={RippleImageScreen} />
           <Stack.Screen
